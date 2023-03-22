@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react"
+import Headers  from "./Components/Header"
+import Meme from "./Components/Meme"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+/**
+ * Challenge: Build the Header component
+ */
+export default function App() {
+  // destructuring
+  const [count, setcount] = React.useState(0)
+
+  function add(){
+        setcount(count +1)
+  }
+
+  function minus(){
+    setcount(prevCount => prevCount - 1)
 }
+  return(
+    <div>
+    <Headers />
 
-export default App;
+    <Meme />
+
+
+    
+   
+    <div className="counter">
+            <button className="counter--minus" onClick={minus}>–</button>
+            <div className="counter--count">
+                <h1>{count}</h1>
+            </div>
+            <button className="counter--plus" onClick={add}>+</button>
+        </div>
+    
+    </div>
+  )
+}
